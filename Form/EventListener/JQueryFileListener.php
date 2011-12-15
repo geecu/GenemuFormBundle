@@ -43,6 +43,11 @@ class JQueryFileListener implements EventSubscriberInterface
             return;
         }
         
+        if (!is_string($data)) {
+            //it was already set
+            return;
+        }
+        
         if ($this->multiple) {
             $files = explode(',', $data);
             $data = array();
